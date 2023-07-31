@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "next",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "next/core-web-vitals"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "prettier/prettier": "off",
+        "prefer-const": "error",
+        "react/no-unescaped-entities": 0,
+        "@next/next/no-img-element": 0
+    }
 }
