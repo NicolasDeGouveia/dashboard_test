@@ -3,13 +3,15 @@ import navReducer from "./features/navSlice"
 import providerReducer from './features/providerSlice'
 import activitiesMonthReducer from "./features/activitiesMonthSlice"
 import activitiesProviderReducer from "./features/activitiesProviderSlice"
+import userReducer from "./features/userSlice"
 
 export const store = configureStore({
 reducer: {
 navigation: navReducer,
 provider: providerReducer,
-activitiesMont: activitiesMonthReducer,
-activitiesProvider: activitiesProviderReducer
+activitiesMonth: activitiesMonthReducer,
+activitiesProvider: activitiesProviderReducer,
+user: userReducer
 },
 });
 

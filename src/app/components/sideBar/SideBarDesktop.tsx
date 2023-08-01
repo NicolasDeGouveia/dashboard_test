@@ -13,7 +13,10 @@ const SideBarDesktop = () => {
         <aside className="hidden fixed h-screen p-4 bg-white border-r-[1px] lg:flex flex-col justify-between">
             <div className="flex flex-col items-center h-full">
                 <Link href="">
-                    <div className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg">
+                    <div
+                        className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
+                        onClick={() => dispatch(setCurrentComponent({ componentType: 0 }))}
+                    >
                         <AiOutlineChrome />
                     </div>
                 </Link>
