@@ -47,7 +47,7 @@ export const fetchActivitiesProviderData = createAsyncThunk('cube/fetchActivitie
   const response = await axios.post(`${cubeApiUrl}/load`, cubeActivitiesProviderQuery, {
     headers: { Authorization: `Bearer ${cubeApiToken}` },
   });
-  return response.data;
+  return response.data.data;
 });
 
 

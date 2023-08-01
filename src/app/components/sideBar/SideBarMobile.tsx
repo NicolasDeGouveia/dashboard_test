@@ -6,8 +6,12 @@ import { AiOutlineChrome } from 'react-icons/ai';
 import { FaBars } from 'react-icons/fa';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/app/redux/store';
+import { setCurrentComponent } from '@/app/redux/features/navSlice';
 
 const SideBarMobile = () => {
+    const dispatch = useDispatch<AppDispatch>();
     const [toggleNavMenu, setToggleNavMenu] = useState<boolean>(false);
 
     const sideVariants = {
@@ -57,14 +61,24 @@ const SideBarMobile = () => {
                                         <Link
                                             href=""
                                             className={style.link}
-                                            onClick={() => setToggleNavMenu(!toggleNavMenu)}
+                                            onClick={() => {
+                                                setToggleNavMenu(!toggleNavMenu),
+                                                    dispatch(
+                                                        setCurrentComponent({ componentType: 1 })
+                                                    );
+                                            }}
                                         >
                                             Provider
                                         </Link>
                                         <Link
                                             href=""
                                             className={style.link}
-                                            onClick={() => setToggleNavMenu(!toggleNavMenu)}
+                                            onClick={() => {
+                                                setToggleNavMenu(!toggleNavMenu),
+                                                    dispatch(
+                                                        setCurrentComponent({ componentType: 2 })
+                                                    );
+                                            }}
                                         >
                                             Activities
                                         </Link>
