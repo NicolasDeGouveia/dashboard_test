@@ -1,9 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit"
 import navReducer from "./features/navSlice"
+import cubeReducer from './features/cubeSlice'
 
 export const store = configureStore({
 reducer: {
-navigation: navReducer
+navigation: navReducer,
+cube: cubeReducer
 },
 });
 

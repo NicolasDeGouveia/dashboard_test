@@ -8,7 +8,6 @@ import ActivitiesCharts from './ActivitiesCharts';
 
 const Charts = () => {
     const count = useSelector((state: RootState) => state.navigation.value);
-    console.log(count);
     return (
         <div className="flex justify-start px-4 pt-12">
             {count === 1 && <ProviderCharts />}
