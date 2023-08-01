@@ -10,7 +10,7 @@ type Props = {
 
 function Card({ number, loading }: Props) {
     let sum = 0;
-    number.forEach((num) => (sum += num));
+    number?.forEach((num) => (sum += num));
 
     return (
         <div className=" m-auto p-4 rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-bl from-[#000] via-[#000] to-orange-200 max-w-xs h-40">

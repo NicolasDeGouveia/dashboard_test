@@ -4,8 +4,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 // Packages
 import { AiOutlineChrome } from 'react-icons/ai';
-import { AppDispatch, RootState } from '@/app/redux/store';
+import { AppDispatch } from '@/app/redux/store';
 import { setCurrentComponent } from '@/app/redux/features/navSlice';
+import { FaHome, FaHubspot } from 'react-icons/fa';
+import { RiNumbersFill } from 'react-icons/ri';
 
 const SideBarDesktop = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -26,18 +28,27 @@ const SideBarDesktop = () => {
                         className={style.link}
                         onClick={() => dispatch(setCurrentComponent({ componentType: 0 }))}
                     >
+                        <span className="pr-4 text-2xl">
+                            <FaHome />
+                        </span>
                         Home
                     </div>
                     <div
                         className={style.link}
                         onClick={() => dispatch(setCurrentComponent({ componentType: 1 }))}
                     >
+                        <span className="pr-4 text-2xl">
+                            <FaHubspot />
+                        </span>
                         Provider
                     </div>
                     <div
                         className={style.link}
                         onClick={() => dispatch(setCurrentComponent({ componentType: 2 }))}
                     >
+                        <span className="pr-4 text-2xl">
+                            <RiNumbersFill />
+                        </span>
                         Activities
                     </div>
                 </div>
@@ -49,5 +60,5 @@ const SideBarDesktop = () => {
 export default SideBarDesktop;
 
 const style = {
-    link: 'text-xl font-bold text-black uppercase hover:text-orange-200 link link-underline link-underline-black my-4 cursor-pointer',
+    link: 'w-full text-xl font-bold text-black uppercase hover:text-orange-200 link link-underline link-underline-black my-4 cursor-pointer justify-start flex items-center',
 };

@@ -18,7 +18,9 @@ const HomePage = () => {
 
     return (
         <>
-            <h2 className={`${ptserif.className} text-2xl font-bold `}>Your Activities</h2>
+            <h2 className={`${ptserif.className} text-2xl font-bold mb-8 ml-4 lg:ml-0`}>
+                Your Activities
+            </h2>
             <Card
                 number={activities}
                 loading={loading}

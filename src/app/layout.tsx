@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={`${inter.className} bg-gray-100`}>
                 <ReduxProvider>
                     <SideBar />
-                    <main className="w-full h-screen lg:pl-36">{children}</main>
+                    <main className="w-full h-screen lg:pl-40">{children}</main>
                 </ReduxProvider>
             </body>
         </html>

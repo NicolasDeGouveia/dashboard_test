@@ -25,7 +25,9 @@ const ProviderCharts = () => {
 
     return (
         <>
-            <h2 className={`${ptserif.className} text-2xl font-bold `}>Providers</h2>
+            <h2 className={`${ptserif.className} text-2xl font-bold mb-8 ml-4 lg:ml-0`}>
+                Providers
+            </h2>
             <ul className="grid grid-cols-1 gap-8 lg:grid-cols-3 items-center max-w-[77.5rem] m-auto ">
                 {data?.map((item, index) => (
                     <li
