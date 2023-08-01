@@ -18,12 +18,12 @@ function ActivitiesCharts() {
             <h2 className={`${ptserif.className} text-2xl font-bold ml-4 lg:ml-0`}>Activities</h2>
             <div className="flex flex-col items-center justify-center my-8 lg:flex-row">
                 <LineChart />
-                <BarCharts />
+                <Card
+                    number={activities}
+                    loading={loading}
+                />
             </div>
-            <Card
-                number={activities}
-                loading={loading}
-            />
+            <BarCharts />
         </>
     );
 }

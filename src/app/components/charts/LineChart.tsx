@@ -48,12 +48,12 @@ const LineChart = () => {
     }
 
     return (
-        <div className="max-w-[40rem] h-auto m-auto bg-black rounded-lg lg:w-1/2">
+        <div className="w-full lg:max-w-[40rem] h-auto m-auto bg-black rounded-lg mb-4 lg:mb-0">
             <span className="px-4 font-semibold text-white uppercase">Activities per month </span>
 
             <ReactECharts
                 option={option}
-                style={{ height: '25rem' }}
+                style={{ height: '250px', paddingLeft: '0.5rem', paddingRight: '0.5rem' }}
             />
         </div>
     );
