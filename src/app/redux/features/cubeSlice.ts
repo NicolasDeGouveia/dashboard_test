@@ -6,22 +6,48 @@ import axios from 'axios';
 const cubeApiUrl = 'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1';
 const cubeApiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTA3OTMwNDN9.by1HD6M6l-g0pTEWRaXvYwsSWFdSI9VejrTdOGOodPM';
 
-// Query
-const cubeQuery = {
+// Query provider data
+const cubeProviderQuery = {
     "query": {
-  "dimensions": ['datamart_daily_user_activities.provider'],
-  "order": {
-    'datamart_daily_user_activities.activities': 'desc'
-  }
-  }
+        "dimensions": ['datamart_daily_user_activities.provider'],
+        "order": {
+            'datamart_daily_user_activities.activities': 'desc'
+        }
+    }
 };
 
-// Fetch function
-export const fetchCubeData = createAsyncThunk('cube/fetchData', async () => {
-  const response = await axios.post(`${cubeApiUrl}/load`, cubeQuery, {
+// Query activities per provider data
+const cubeActivitiesProviderQuery = {
+    "query": {
+        "order": {
+            "datamart_daily_user_activities.date": "asc"
+        },
+        "measures": [
+            "datamart_daily_user_activities.activities"
+        ],
+        "timeDimensions": [
+            {
+                "dimension": "datamart_daily_user_activities.date",
+                "granularity": "month"
+            }
+        ]
+    }
+};
+
+// Fetch provider data function
+export const fetchProviderData = createAsyncThunk('cube/fetchData', async () => {
+  const response = await axios.post(`${cubeApiUrl}/load`, cubeProviderQuery, {
     headers: { Authorization: `Bearer ${cubeApiToken}` },
   });
   return response.data.data;
+});
+
+// Fetch provider data function
+export const fetchActivitiesProviderData = createAsyncThunk('cube/fetchActivitiesProviderMonthData', async () => {
+  const response = await axios.post(`${cubeApiUrl}/load`, cubeActivitiesProviderQuery, {
+    headers: { Authorization: `Bearer ${cubeApiToken}` },
+  });
+  return response.data;
 });
 
 
@@ -35,17 +61,33 @@ const cubeSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    // PROVIDER SECTION DATA
     builder
-      .addCase(fetchCubeData.pending, (state) => {
+      .addCase(fetchProviderData.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCubeData.fulfilled, (state, action) => {
+      .addCase(fetchProviderData.fulfilled, (state, action) => {
         state.loading = false;
         state.data = action.payload;
         
       })
-      .addCase(fetchCubeData.rejected, (state, action) => {
+      .addCase(fetchProviderData.rejected, (state, action) => {
+        state.loading = false;
+        // state.error = action.error.message;
+      });
+     // ACTIVITIES SECTION DATA
+    builder
+      .addCase(fetchActivitiesProviderData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchActivitiesProviderData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+        
+      })
+      .addCase(fetchActivitiesProviderData.rejected, (state, action) => {
         state.loading = false;
         // state.error = action.error.message;
       });
