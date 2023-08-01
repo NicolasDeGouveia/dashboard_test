@@ -52,14 +52,32 @@ const SideBarMobile = () => {
                             <div className="fixed h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between">
                                 <div className="flex flex-col items-center h-full">
                                     <Link href="">
-                                        <div className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg">
+                                        <div
+                                            className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
+                                            onClick={() => {
+                                                setToggleNavMenu(!toggleNavMenu),
+                                                    dispatch(
+                                                        setCurrentComponent({ componentType: 0 })
+                                                    );
+                                            }}
+                                        >
                                             <AiOutlineChrome />
                                         </div>
                                     </Link>
                                     <span className="border-b-[1px] border-gray-200 w-full p-2 mb-4" />
                                     <div className="flex flex-col items-center justify-center h-full">
-                                        <Link
-                                            href=""
+                                        <div
+                                            className={style.link}
+                                            onClick={() => {
+                                                setToggleNavMenu(!toggleNavMenu),
+                                                    dispatch(
+                                                        setCurrentComponent({ componentType: 0 })
+                                                    );
+                                            }}
+                                        >
+                                            Home
+                                        </div>
+                                        <div
                                             className={style.link}
                                             onClick={() => {
                                                 setToggleNavMenu(!toggleNavMenu),
@@ -69,9 +87,8 @@ const SideBarMobile = () => {
                                             }}
                                         >
                                             Provider
-                                        </Link>
-                                        <Link
-                                            href=""
+                                        </div>
+                                        <div
                                             className={style.link}
                                             onClick={() => {
                                                 setToggleNavMenu(!toggleNavMenu),
@@ -81,7 +98,7 @@ const SideBarMobile = () => {
                                             }}
                                         >
                                             Activities
-                                        </Link>
+                                        </div>
                                     </div>
                                     <div
                                         className="text-4xl"

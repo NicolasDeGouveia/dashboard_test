@@ -24,6 +24,12 @@ const SideBarDesktop = () => {
                 <div className="flex flex-col items-center justify-center h-full">
                     <div
                         className={style.link}
+                        onClick={() => dispatch(setCurrentComponent({ componentType: 0 }))}
+                    >
+                        Home
+                    </div>
+                    <div
+                        className={style.link}
                         onClick={() => dispatch(setCurrentComponent({ componentType: 1 }))}
                     >
                         Provider

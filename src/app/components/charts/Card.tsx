@@ -9,9 +9,6 @@ type Props = {
 };
 
 function Card({ number, loading }: Props) {
-    console.log(loading);
-    console.log(number);
-
     let sum = 0;
     number.forEach((num) => (sum += num));
 

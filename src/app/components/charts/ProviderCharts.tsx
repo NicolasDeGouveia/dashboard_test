@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../Loader';
 import getIcon from '@/utils/function/getIcon';
+import { PT_Serif } from 'next/font/google';
+const ptserif = PT_Serif({ weight: '700', subsets: ['latin'] });
 
 const ProviderCharts = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -22,8 +24,9 @@ const ProviderCharts = () => {
     }
 
     return (
-        <section className="flex items-center justify-center h-full">
-            <ul className="grid grid-cols-3 gap-8 ">
+        <>
+            <h2 className={`${ptserif.className} text-2xl font-bold `}>Providers</h2>
+            <ul className="grid grid-cols-1 gap-8 lg:grid-cols-3 items-center max-w-[77.5rem] m-auto ">
                 {data?.map((item, index) => (
                     <li
                         key={index}
@@ -36,7 +39,7 @@ const ProviderCharts = () => {
                     </li>
                 ))}
             </ul>
-        </section>
+        </>
     );
 };
 

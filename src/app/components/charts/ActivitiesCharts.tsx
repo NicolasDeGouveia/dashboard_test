@@ -4,6 +4,9 @@ import BarCharts from './BarCharts';
 import Card from './Card';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/redux/store';
+import { PT_Serif } from 'next/font/google';
+
+const ptserif = PT_Serif({ weight: '700', subsets: ['latin'] });
 
 function ActivitiesCharts() {
     const { data, loading } = useSelector((state: RootState) => state.activitiesProvider);
@@ -11,8 +14,9 @@ function ActivitiesCharts() {
         parseInt(item['datamart_daily_user_activities.activities'])
     );
     return (
-        <section className="w-full">
-            <div className="flex flex-col items-center justify-center w-full h-full my-8 lg:flex-row">
+        <>
+            <h2 className={`${ptserif.className} text-2xl font-bold `}>Activities</h2>
+            <div className="flex flex-col items-center justify-center my-8 lg:flex-row">
                 <LineChart />
                 <BarCharts />
             </div>
@@ -21,7 +25,7 @@ function ActivitiesCharts() {
                 number={activities}
                 loading={loading}
             />
-        </section>
+        </>
     );
 }
 

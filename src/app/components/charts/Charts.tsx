@@ -10,11 +10,11 @@ import HomePage from '../HomePage';
 const Charts = () => {
     const count = useSelector((state: RootState) => state.navigation.value);
     return (
-        <div className="h-full px-4 pt-12 ">
+        <section className="h-full px-4 pt-12 border-[2px] border-t-orange-200 rounded-tl-xl border-l-[3px] border-l-orange-200  ">
             {count === 0 && <HomePage />}
             {count === 1 && <ProviderCharts />}
             {count === 2 && <ActivitiesCharts />}
-        </div>
+        </section>
     );
 };
 
