@@ -1,4 +1,4 @@
-import { CubeData, fetchCubeData } from '@/app/redux/features/cubeSlice';
+import { fetchCubeData } from '@/app/redux/features/cubeSlice';
 import { AppDispatch, RootState } from '@/app/redux/store';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

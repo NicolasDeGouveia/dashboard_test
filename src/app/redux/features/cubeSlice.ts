@@ -2,13 +2,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Replace this URL with your actual Cube.js API endpoint
+// Cube credentials
 const cubeApiUrl = 'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1';
-
-// Replace this token with your actual Cube.js API token
 const cubeApiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTA3OTMwNDN9.by1HD6M6l-g0pTEWRaXvYwsSWFdSI9VejrTdOGOodPM';
 
-// Replace this with your Cube.js query
+// Query
 const cubeQuery = {
     "query": {
   "dimensions": ['datamart_daily_user_activities.provider'],
@@ -18,7 +16,7 @@ const cubeQuery = {
   }
 };
 
-// Create an async thunk to fetch data from Cube.js
+// Fetch function
 export const fetchCubeData = createAsyncThunk('cube/fetchData', async () => {
   const response = await axios.post(`${cubeApiUrl}/load`, cubeQuery, {
     headers: { Authorization: `Bearer ${cubeApiToken}` },
@@ -27,15 +25,11 @@ export const fetchCubeData = createAsyncThunk('cube/fetchData', async () => {
 });
 
 
-export type CubeData = {
-  [key: string]: string; 
-};
-
 // Create a Redux slice to manage the state
 const cubeSlice = createSlice({
   name: 'cube',
   initialState: {
-    data: [] as CubeData[],
+    data: [],
     loading: false,
     error: null,
   },
