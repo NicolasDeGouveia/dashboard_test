@@ -40,5 +40,5 @@ const SideBarDesktop = () => {
 export default SideBarDesktop;
 
 const style = {
-    link: 'text-xl font-bold text-black uppercase hover:text-orange-200 link link-underline link-underline-black my-4',
+    link: 'text-xl font-bold text-black uppercase hover:text-orange-200 link link-underline link-underline-black my-4 cursor-pointer',
 };
