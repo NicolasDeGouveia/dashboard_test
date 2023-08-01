@@ -1,20 +1,21 @@
 'use client';
-import { fetchActivitiesProviderData } from '@/app/redux/features/cubeSlice';
-import { AppDispatch, RootState } from '@/app/redux/store';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactECharts, ReactEChartsProps } from './ReactECahrt';
+import { AppDispatch, RootState } from '@/app/redux/store';
+import { ReactECharts, ReactEChartsProps } from './ReactECharts';
+import { fetchActivitiesProviderMonthData } from '@/app/redux/features/activitiesMonthSlice';
+import Loader from '../Loader';
+
 const LineChart = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { data, loading, error } = useSelector((state: RootState) => state.cube);
+    const { data, loading, error } = useSelector((state: RootState) => state.activitiesMont);
 
     // Map to retrieves both dates & activities to store in chart option
-    const dates = data.map((item) => item['datamart_daily_user_activities.date.month']);
+    const dates = data?.map((item) => item['datamart_daily_user_activities.date.month']);
 
-    const activities = data.map((item) =>
+    const activities = data?.map((item) =>
         parseInt(item['datamart_daily_user_activities.activities'])
     );
-    console.log(dates);
 
     // Option to give to the chart component
     const option: ReactEChartsProps['option'] = {
@@ -35,11 +36,11 @@ const LineChart = () => {
     };
 
     useEffect(() => {
-        dispatch(fetchActivitiesProviderData());
+        dispatch(fetchActivitiesProviderMonthData());
     }, [dispatch]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     if (error !== null) {
@@ -47,7 +48,7 @@ const LineChart = () => {
     }
 
     return (
-        <div className="w-full m-auto bg-black rounded-lg lg:w-1/2 h-1/2">
+        <div className="w-full h-auto m-auto bg-black rounded-lg lg:w-1/2">
             <span className="px-4 font-semibold text-white uppercase">Activities per month </span>
             <ReactECharts
                 option={option}

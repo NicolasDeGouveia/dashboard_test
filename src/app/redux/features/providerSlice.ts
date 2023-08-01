@@ -16,35 +16,9 @@ const cubeProviderQuery = {
     }
 };
 
-// Query activities per provider data
-const cubeActivitiesProviderQuery = {
-    "query": {
-        "order": {
-            "datamart_daily_user_activities.date": "asc"
-        },
-        "measures": [
-            "datamart_daily_user_activities.activities"
-        ],
-        "timeDimensions": [
-            {
-                "dimension": "datamart_daily_user_activities.date",
-                "granularity": "month"
-            }
-        ]
-    }
-};
-
 // Fetch provider data function
 export const fetchProviderData = createAsyncThunk('cube/fetchData', async () => {
   const response = await axios.post(`${cubeApiUrl}/load`, cubeProviderQuery, {
-    headers: { Authorization: `Bearer ${cubeApiToken}` },
-  });
-  return response.data.data;
-});
-
-// Fetch provider data function
-export const fetchActivitiesProviderData = createAsyncThunk('cube/fetchActivitiesProviderMonthData', async () => {
-  const response = await axios.post(`${cubeApiUrl}/load`, cubeActivitiesProviderQuery, {
     headers: { Authorization: `Bearer ${cubeApiToken}` },
   });
   return response.data.data;
@@ -61,7 +35,6 @@ const cubeSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    // PROVIDER SECTION DATA
     builder
       .addCase(fetchProviderData.pending, (state) => {
         state.loading = true;
@@ -76,21 +49,7 @@ const cubeSlice = createSlice({
         state.loading = false;
         // state.error = action.error.message;
       });
-     // ACTIVITIES SECTION DATA
-    builder
-      .addCase(fetchActivitiesProviderData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchActivitiesProviderData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-        
-      })
-      .addCase(fetchActivitiesProviderData.rejected, (state, action) => {
-        state.loading = false;
-        // state.error = action.error.message;
-      });
+  
   },
 });
 

@@ -1,11 +1,11 @@
-import { fetchProviderData } from '@/app/redux/features/cubeSlice';
+import { fetchProviderData } from '@/app/redux/features/providerSlice';
 import { AppDispatch, RootState } from '@/app/redux/store';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProviderCharts = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { data, loading, error } = useSelector((state: RootState) => state.cube);
+    const { data, loading, error } = useSelector((state: RootState) => state.provider);
 
     useEffect(() => {
         dispatch(fetchProviderData());

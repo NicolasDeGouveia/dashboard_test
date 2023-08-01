@@ -1,11 +1,15 @@
 import {configureStore} from "@reduxjs/toolkit"
 import navReducer from "./features/navSlice"
-import cubeReducer from './features/cubeSlice'
+import providerReducer from './features/providerSlice'
+import activitiesMonthReducer from "./features/activitiesMonthSlice"
+import activitiesProviderReducer from "./features/activitiesProviderSlice"
 
 export const store = configureStore({
 reducer: {
 navigation: navReducer,
-cube: cubeReducer
+provider: providerReducer,
+activitiesMont: activitiesMonthReducer,
+activitiesProvider: activitiesProviderReducer
 },
 });
 
