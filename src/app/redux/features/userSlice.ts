@@ -41,6 +41,7 @@ const cubeSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchUserData.fulfilled, (state, action) => {
+        console.log('Fulfilled Action:', action)
         state.loading = false;
         state.data = action.payload;
         

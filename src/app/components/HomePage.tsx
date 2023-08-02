@@ -10,6 +10,7 @@ const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 const HomePage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { data, loading, error } = useSelector((state: RootState) => state.user);
+    console.log(data);
 
     const activities = data?.map((item) => parseInt(item['datamart_daily_user_activities.count']));
     useEffect(() => {
