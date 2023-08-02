@@ -51,11 +51,11 @@ const BarCharts = () => {
     }
 
     return (
-        <div className="w-full h-auto m-auto">
+        <div className="w-full md:col-span-2 relative h-[25vh] m-auto lg:p-4 border rounded-lg bg-white">
             <h2 className="px-4 font-semibold text-black uppercase">Activities per provider</h2>
             <ReactECharts
                 option={option}
-                style={{ height: '250px' }}
+                style={{ height: '350px', marginLeft: '1rem' }}
             />
         </div>
     );

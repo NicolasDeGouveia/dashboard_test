@@ -16,7 +16,7 @@ function ActivitiesCharts() {
     return (
         <>
             <h2 className={`${ptserif.className} text-2xl font-bold ml-4 lg:ml-0`}>Activities</h2>
-            <div className="flex flex-col items-center justify-center my-8 lg:flex-row">
+            <div className="grid grid-cols-1 gap-4 my-8 md:grid-cols-3">
                 <LineChart />
                 <Card
                     number={activities}

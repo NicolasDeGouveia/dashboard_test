@@ -12,7 +12,7 @@ import { RiNumbersFill } from 'react-icons/ri';
 const SideBarDesktop = () => {
     const dispatch = useDispatch<AppDispatch>();
     return (
-        <aside className="hidden fixed h-screen p-4 bg-white border-r-[1px] lg:flex flex-col justify-between">
+        <aside className="hidden fixed h-full p-4 bg-white border-r-[1px] lg:flex flex-col justify-between">
             <div className="flex flex-col items-center h-full">
                 <Link href="">
                     <div
