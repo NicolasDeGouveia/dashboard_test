@@ -1,7 +1,8 @@
-import { RootState } from '@/app/redux/store';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import Loader from '../Loader';
+import Loader from '../../Loader';
+import { Ubuntu } from 'next/font/google';
+
+const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 
 type Props = {
     number: number[];
@@ -13,9 +14,11 @@ function Card({ number, loading }: Props) {
     number?.forEach((num) => (sum += num));
 
     return (
-        <div className=" m-auto p-4 rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] bg-gradient-to-bl from-[#000] via-[#000] to-orange-200 max-w-xs h-40">
+        <div className=" m-auto p-4 rounded-2xl shadow-[0px_1px_3px_0px_rgb(254_215_170)] bg-[#3a3838] max-w-xs h-40">
             <div className="flex flex-col items-center justify-center h-full">
-                <h3 className="text-white uppercase">Total Activities</h3>
+                <h3 className={`${ubuntu.className} text-white uppercase text-xl`}>
+                    Total Activities
+                </h3>
                 {loading || number?.length === 0 ? (
                     <div className="mt-2">
                         <Loader />

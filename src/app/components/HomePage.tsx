@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../redux/store';
 import { fetchUserData } from '../redux/features/userSlice';
-import Card from './charts/Card';
-import { PT_Serif } from 'next/font/google';
+import Card from './charts/Generic/Card';
+import { Ubuntu } from 'next/font/google';
 
-const ptserif = PT_Serif({ weight: '700', subsets: ['latin'] });
+const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 
 const HomePage = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -18,7 +18,7 @@ const HomePage = () => {
 
     return (
         <>
-            <h2 className={`${ptserif.className} text-2xl font-bold mb-8 ml-4 lg:ml-0`}>
+            <h2 className={`${ubuntu.className} text-3xl font-bold mb-8 ml-4 lg:ml-0 text-white`}>
                 Your Activities
             </h2>
             <Card

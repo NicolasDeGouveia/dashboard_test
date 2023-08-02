@@ -32,7 +32,7 @@ const SideBarMobile = () => {
     return (
         <>
             <div
-                className={`text-xl md:text-2xl lg:hidden transition-all duration-500 absolute left-4 top-4 ${
+                className={`text-xl text-white md:text-2xl lg:hidden transition-all duration-500 absolute left-4 top-4 ${
                     toggleNavMenu ? 'rotate-90' : ''
                 }`}
                 onClick={() => setToggleNavMenu(!toggleNavMenu)}
@@ -49,21 +49,17 @@ const SideBarMobile = () => {
                         variants={sideVariants}
                     >
                         <aside className="flex">
-                            <div className="fixed h-screen p-4 bg-white border-r-[1px] flex flex-col justify-between">
+                            <div className="fixed h-screen p-4 bg-[#3a3838] border-r-[1px] flex flex-col justify-between">
                                 <div className="flex flex-col items-center h-full">
-                                    <Link href="">
-                                        <div
-                                            className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
-                                            onClick={() => {
-                                                setToggleNavMenu(!toggleNavMenu),
-                                                    dispatch(
-                                                        setCurrentComponent({ componentType: 0 })
-                                                    );
-                                            }}
-                                        >
-                                            <AiOutlineChrome />
-                                        </div>
-                                    </Link>
+                                    <div
+                                        className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
+                                        onClick={() => {
+                                            setToggleNavMenu(!toggleNavMenu),
+                                                dispatch(setCurrentComponent({ componentType: 0 }));
+                                        }}
+                                    >
+                                        <AiOutlineChrome />
+                                    </div>
                                     <span className="border-b-[1px] border-gray-200 w-full p-2 mb-4" />
                                     <div className="flex flex-col items-center justify-center h-full">
                                         <div

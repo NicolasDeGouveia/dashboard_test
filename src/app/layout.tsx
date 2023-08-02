@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} bg-gray-100`}>
+            <body className={`${inter.className} bg-black`}>
                 <ReduxProvider>
                     <SideBar />
-                    <main className="w-full h-auto bg-gray-100 lg:pl-40">{children}</main>
+                    <main className="w-full h-auto lg:pl-40">{children}</main>
                 </ReduxProvider>
             </body>
         </html>

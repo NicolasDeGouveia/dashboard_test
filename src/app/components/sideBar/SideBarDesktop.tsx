@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 // Packages
@@ -12,16 +11,14 @@ import { RiNumbersFill } from 'react-icons/ri';
 const SideBarDesktop = () => {
     const dispatch = useDispatch<AppDispatch>();
     return (
-        <aside className="hidden fixed h-full p-4 bg-white border-r-[1px] lg:flex flex-col justify-between">
+        <aside className="hidden fixed h-full p-4 bg-[#3a3838] border-r-[1px] lg:flex flex-col justify-between">
             <div className="flex flex-col items-center h-full">
-                <Link href="">
-                    <div
-                        className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
-                        onClick={() => dispatch(setCurrentComponent({ componentType: 0 }))}
-                    >
-                        <AiOutlineChrome />
-                    </div>
-                </Link>
+                <div
+                    className="inline-block p-3 text-xl text-white bg-orange-200 rounded-lg"
+                    onClick={() => dispatch(setCurrentComponent({ componentType: 0 }))}
+                >
+                    <AiOutlineChrome />
+                </div>
                 <span className="border-b-[1px] border-gray-200 w-full p-2 mb-4" />
                 <div className="flex flex-col items-center justify-center h-full">
                     <div
@@ -60,5 +57,5 @@ const SideBarDesktop = () => {
 export default SideBarDesktop;
 
 const style = {
-    link: 'w-full text-xl font-bold text-black uppercase hover:text-orange-200 link link-underline link-underline-black my-4 cursor-pointer justify-start flex items-center',
+    link: 'w-full text-xl font-bold text-white uppercase hover:text-orange-200 link link-underline link-underline-black my-4 cursor-pointer justify-start flex items-center',
 };

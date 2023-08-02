@@ -2,8 +2,11 @@ import { fetchActivitiesProviderData } from '@/app/redux/features/activitiesProv
 import { AppDispatch, RootState } from '@/app/redux/store';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactECharts, ReactEChartsProps } from './ReactECharts';
-import Loader from '../Loader';
+import { ReactECharts, ReactEChartsProps } from '../Generic/ReactECharts';
+import Loader from '../../Loader';
+import { Ubuntu } from 'next/font/google';
+
+const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 
 const BarCharts = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -51,8 +54,10 @@ const BarCharts = () => {
     }
 
     return (
-        <div className="w-full md:col-span-2 relative h-[25vh] m-auto lg:p-4 border rounded-lg bg-white">
-            <h2 className="px-4 font-semibold text-black uppercase">Activities per provider</h2>
+        <div className="w-full md:col-span-2 relative h-[25vh] m-auto lg:p-4 border rounded-lg bg-[#3a3838]">
+            <h2 className={`${ubuntu.className} px-4 font-semibold text-white uppercase`}>
+                Activities per provider
+            </h2>
             <ReactECharts
                 option={option}
                 style={{ height: '350px', marginLeft: '1rem' }}
