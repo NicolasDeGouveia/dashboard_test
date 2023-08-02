@@ -1,7 +1,7 @@
 import React from 'react';
 import LineChart from './LineChart';
 import BarCharts from './BarCharts';
-import Card from './Card';
+import Card from '../Generic/Card';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/app/redux/store';
 import { PT_Serif } from 'next/font/google';
@@ -15,8 +15,10 @@ function ActivitiesCharts() {
     );
     return (
         <>
-            <h2 className={`${ptserif.className} text-2xl font-bold ml-4 lg:ml-0`}>Activities</h2>
-            <div className="flex flex-col items-center justify-center my-8 lg:flex-row">
+            <h2 className={`${ptserif.className} text-3xl font-bold ml-4 lg:ml-0 text-white`}>
+                Activities
+            </h2>
+            <div className="grid grid-cols-1 gap-4 my-8 md:grid-cols-3">
                 <LineChart />
                 <Card
                     number={activities}
