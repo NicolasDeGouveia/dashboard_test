@@ -1,8 +1,8 @@
 import axios from 'axios'; // Import axios
-import cubeSlice, { fetchUserData } from '../src/app/redux/features/userSlice'; // Make sure to import the cubeSlice correctly
+import { fetchUserData } from '../src/app/redux/features/userSlice'; // Make sure to import the cubeSlice correctly
 import { store } from '@/app/redux/store';
 
-describe('user redux state tests', () => {
+describe('user activities state tests', () => {
     it('Should be able to fetch the user activities', async () => {
         const response = await axios.post(
             'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1/load',
@@ -20,13 +20,12 @@ describe('user redux state tests', () => {
 
         const user = response.data.data;
 
-        // Dispatch the action with the real data
         const result = await store.dispatch(fetchUserData());
 
         expect(result.type).toBe('cube/fetchUserData/fulfilled');
-        expect(result.payload).toEqual(user); // Updated assertion
+        expect(result.payload).toEqual(user);
 
         const state = store.getState().user.data;
-        expect(state).toEqual(user); // Updated assertion
+        expect(state).toEqual(user);
     });
 });
