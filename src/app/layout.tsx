@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SideBar from './components/sideBar/SideBar';
 import { ReduxProvider } from './redux/ReduxProvider';
-
+import Home from './page';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className={`${inter.className} bg-gray-100`}>
                 <ReduxProvider>
                     <SideBar />
+
                     <main className="w-full h-screen lg:pl-40">{children}</main>
                 </ReduxProvider>
             </body>
