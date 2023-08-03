@@ -12,7 +12,6 @@ const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 const LineChart = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { data, loading, error } = useSelector((state: RootState) => state.activitiesMonth);
-    console.log(data);
 
     // Map to retrieves both dates & activities to store in chart option
     const dates = data?.map((item) => item['datamart_daily_user_activities.date.month']);

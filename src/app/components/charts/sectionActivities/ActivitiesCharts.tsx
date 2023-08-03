@@ -10,7 +10,6 @@ const ptserif = PT_Serif({ weight: '700', subsets: ['latin'] });
 
 function ActivitiesCharts() {
     const { data, loading } = useSelector((state: RootState) => state.activitiesProvider);
-    console.log(data);
 
     const activities = data?.map((item) =>
         parseInt(item['datamart_daily_user_activities.activities'])

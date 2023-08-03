@@ -11,7 +11,6 @@ export interface ReactEChartsProps {
 
 export function ReactECharts({ option, style, settings }: ReactEChartsProps): JSX.Element {
     const chartRef = useRef<HTMLDivElement>(null);
-    console.log(option);
 
     useEffect(() => {
         // Initialize chart
