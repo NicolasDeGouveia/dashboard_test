@@ -13,11 +13,7 @@ Second, go to the repository:
 cd dashboard_test
 ```
 
-Third, open your code editor and setup a .env.local file like the .env.local.exemple.
-Fill the informations that is needed with the help of the elements provided in the technical test file.
-
-
-Fourth, install dependencies and run the application
+Third, install dependencies and run the application
 ```bash
 npm install
 # and
