@@ -24,7 +24,7 @@ function Card({ number, loading }: Props) {
                         <Loader />
                     </div>
                 ) : (
-                    <div className="text-4xl font-bold text-white">{sum}</div>
+                    <div className="text-4xl font-bold text-orange-200">{sum}</div>
                 )}
             </div>
         </div>

@@ -33,7 +33,7 @@ const ProviderCharts = () => {
                 {data?.map((item, index) => (
                     <li
                         key={index}
-                        className={`${ubuntu.className} p-4 rounded-2xl shadow-[0px_1px_3px_0px_rgb(254_215_170)] bg-[#3a3838] text-white uppercase text-center flex items-center transform transition duration-500 hover:scale-105 `}
+                        className={`${ubuntu.className} p-4 rounded-2xl shadow-[0px_1px_3px_0px_rgb(254_215_170)] bg-[#3a3838] text-white hover:text-orange-200 uppercase text-center flex items-center transform transition duration-500 hover:scale-105 `}
                     >
                         <span className="pr-4">
                             {getIcon(item['datamart_daily_user_activities.provider'])}
