@@ -20,8 +20,8 @@ const ProviderCharts = () => {
         return <Loader />;
     }
 
-    if (error !== null) {
-        return <div>Error: {error}</div>;
+    if (error) {
+        return <div className="text-white">An error occured. Please retry later.</div>;
     }
 
     return (

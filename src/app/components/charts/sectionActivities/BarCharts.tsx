@@ -50,7 +50,7 @@ const BarCharts = () => {
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div className="text-white">An error occured. Please retry later.</div>;
     }
 
     return (

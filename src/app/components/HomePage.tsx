@@ -11,12 +11,17 @@ const HomePage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const data = useSelector((state: RootState) => state.user.data);
     const loading = useSelector((state: RootState) => state.user.loading);
+    const error = useSelector((state: RootState) => state.user.error);
 
     const activities = data?.map((item) => parseInt(item['datamart_daily_user_activities.count']));
 
     useEffect(() => {
         dispatch(fetchUserData());
     }, [dispatch]);
+
+    if (error) {
+        return <div className="text-white">An error occured. Please retry later.</div>;
+    }
 
     return (
         <>

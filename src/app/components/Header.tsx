@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Header = () => {
     return (
         <div className="flex justify-center px-4 py-4">

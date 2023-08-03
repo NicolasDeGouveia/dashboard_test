@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import React, { useState } from 'react';
 // Packages
 import { AiOutlineChrome } from 'react-icons/ai';

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // Packages
 import { AiOutlineChrome } from 'react-icons/ai';
 import { AppDispatch, RootState } from '@/app/redux/store';

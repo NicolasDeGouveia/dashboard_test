@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SideBar from './components/sideBar/SideBar';
 import { ReduxProvider } from './redux/ReduxProvider';
-import Home from './page';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {

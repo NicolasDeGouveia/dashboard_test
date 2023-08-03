@@ -1,7 +1,7 @@
 import React from 'react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { renderWithProviders } from '../src/utils/function/test-utils';
 import HomePage from '@/app/components/HomePage';
 
