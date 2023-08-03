@@ -11,6 +11,7 @@ export interface ReactEChartsProps {
 
 export function ReactECharts({ option, style, settings }: ReactEChartsProps): JSX.Element {
     const chartRef = useRef<HTMLDivElement>(null);
+    console.log(option);
 
     useEffect(() => {
         // Initialize chart
@@ -25,10 +26,10 @@ export function ReactECharts({ option, style, settings }: ReactEChartsProps): JS
         }
         window.addEventListener('resize', resizeChart);
 
-        return () => {
-            chart?.dispose();
-            window.removeEventListener('resize', resizeChart);
-        };
+        // return () => {
+        //     chart?.dispose();
+        //     window.removeEventListener('resize', resizeChart);
+        // };
     }, []);
 
     // Update the chart whenever options or settings change

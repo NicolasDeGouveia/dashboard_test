@@ -9,10 +9,11 @@ const ubuntu = Ubuntu({ weight: '700', subsets: ['latin'] });
 
 const HomePage = () => {
     const dispatch = useDispatch<AppDispatch>();
-    const { data, loading, error } = useSelector((state: RootState) => state.user);
-    console.log(data);
+    const data = useSelector((state: RootState) => state.user.data);
+    const loading = useSelector((state: RootState) => state.user.loading);
 
     const activities = data?.map((item) => parseInt(item['datamart_daily_user_activities.count']));
+
     useEffect(() => {
         dispatch(fetchUserData());
     }, [dispatch]);

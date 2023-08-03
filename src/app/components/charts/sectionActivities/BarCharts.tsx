@@ -60,7 +60,7 @@ const BarCharts = () => {
             </h2>
             <ReactECharts
                 option={option}
-                style={{ height: '350px', marginLeft: '1rem' }}
+                style={{ height: '350px', marginLeft: '1rem', color: 'white' }}
             />
         </div>
     );

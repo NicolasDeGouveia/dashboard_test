@@ -1,14 +1,12 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { RootState, store } from '@/app/redux/store'; // Import your real Redux store
+import { setupStore, RootState } from '@/app/redux/store';
 import SideBarDesktop from '../src/app/components/sideBar/SideBarDesktop';
-import { setCurrentComponent } from '@/app/redux/features/navSlice';
 
 describe('SideBarDesktop component', () => {
     it('should change the state to 1 when clicking on "Provider" and 2 when clicking on "Activities"', () => {
-        // Reset the store to the initial state before each test
-        store.dispatch(setCurrentComponent({ componentType: 0 }));
+        const store = setupStore();
 
         // Render the component with Redux Provider and your real store
         const { getByText } = render(

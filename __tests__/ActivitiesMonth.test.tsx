@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { store } from '@/app/redux/store';
+import { setupStore } from '@/app/redux/store';
 import { fetchActivitiesProviderMonthData } from '@/app/redux/features/activitiesMonthSlice';
 
 describe("month provider's activities state tests", () => {
@@ -28,6 +28,7 @@ describe("month provider's activities state tests", () => {
         );
 
         const activitiesMonth = response.data.data;
+        const store = setupStore();
 
         const result = await store.dispatch(fetchActivitiesProviderMonthData());
 

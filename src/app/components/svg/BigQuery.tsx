@@ -18,11 +18,11 @@ const BigQuery = () => {
             >
                 <stop
                     offset="0"
-                    stop-color="#4387fd"
+                    stopColor="#4387fd"
                 />
                 <stop
                     offset="1"
-                    stop-color="#4683ea"
+                    stopColor="#4683ea"
                 />
             </linearGradient>
             <path
@@ -30,7 +30,7 @@ const BigQuery = () => {
                 fill="url(#a)"
             />
             <path
-                clip-path="url(#b)"
+                clipPath="url(#b)"
                 d="M119.229 86.48L80.625 47.874 64 43.425l-14.933 5.55L43.3 64l4.637 16.729 40.938 40.938 8.687-.386z"
                 opacity=".07"
             />
