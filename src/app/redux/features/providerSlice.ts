@@ -1,10 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Cube credentials
-const cubeApiUrl = 'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1';
-const cubeApiToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTA3OTMwNDN9.by1HD6M6l-g0pTEWRaXvYwsSWFdSI9VejrTdOGOodPM';
-
 // Query provider data
 const cubeProviderQuery = {
     "query": {
@@ -17,8 +13,8 @@ const cubeProviderQuery = {
 
 // Fetch provider data function
 export const fetchProviderData = createAsyncThunk('cube/fetchData', async () => {
-  const response = await axios.post(`${cubeApiUrl}/load`, cubeProviderQuery, {
-    headers: { Authorization: `Bearer ${cubeApiToken}` },
+  const response = await axios.post(`${process.env.NEXT_PUBLIC_CUBE_API_URL}/load`, cubeProviderQuery, {
+    headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_CUBE_API_KEY}` },
   });
   return response.data.data;
 });

@@ -6,16 +6,13 @@ import { renderWithProviders } from '../src/utils/function/test-utils';
 import ProviderCharts from '@/app/components/charts/sectionProvider/ProviderCharts';
 
 export const handlers = [
-    rest.post(
-        'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1/load',
-        (req, res, ctx) => {
-            return res(
-                ctx.json({
-                    data: [{ 'datamart_daily_user_activities.provider': 'bigquery' }],
-                })
-            );
-        }
-    ),
+    rest.post(`${process.env.NEXT_PUBLIC_CUBE_API_URL}/load`, (req, res, ctx) => {
+        return res(
+            ctx.json({
+                data: [{ 'datamart_daily_user_activities.provider': 'bigquery' }],
+            })
+        );
+    }),
 ];
 
 const server = setupServer(...handlers);

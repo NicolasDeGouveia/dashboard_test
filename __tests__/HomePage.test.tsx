@@ -4,18 +4,14 @@ import { setupServer } from 'msw/node';
 import { screen } from '@testing-library/react';
 import { renderWithProviders } from '../src/utils/function/test-utils';
 import HomePage from '@/app/components/HomePage';
-
 export const handlers = [
-    rest.post(
-        'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1/load',
-        (req, res, ctx) => {
-            return res(
-                ctx.json({
-                    data: [{ 'datamart_daily_user_activities.count': 198 }],
-                })
-            );
-        }
-    ),
+    rest.post(`${process.env.NEXT_PUBLIC_CUBE_API_URL}/load`, (req, res, ctx) => {
+        return res(
+            ctx.json({
+                data: [{ 'datamart_daily_user_activities.count': 198 }],
+            })
+        );
+    }),
 ];
 
 const server = setupServer(...handlers);

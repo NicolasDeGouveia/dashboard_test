@@ -5,7 +5,7 @@ import { fetchActivitiesProviderData } from '@/app/redux/features/activitiesProv
 describe("provider's activities state tests", () => {
     it("Should be able to fetch the provider's activities", async () => {
         const response = await axios.post(
-            'https://silver-quelea.gcp-europe-west3-a.cubecloudapp.dev/cubejs-api/v1/load',
+            `${process.env.NEXT_PUBLIC_CUBE_API_URL}/load`,
             {
                 query: {
                     order: {
@@ -22,7 +22,7 @@ describe("provider's activities state tests", () => {
             },
             {
                 headers: {
-                    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTA3OTMwNDN9.by1HD6M6l-g0pTEWRaXvYwsSWFdSI9VejrTdOGOodPM`,
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_CUBE_API_KEY}`,
                 },
             }
         );
